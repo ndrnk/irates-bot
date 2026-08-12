@@ -12,10 +12,6 @@ headers = {
 response = requests.get(url, headers=headers)
 response.encoding = 'utf-8'
 
-# Temporary debug: save raw HTML to inspect it
-with open('debug.html', 'w', encoding='utf-8') as f:
-    f.write(response.text)
-
 soup = BeautifulSoup(response.text, 'html.parser')
 
 # Find all news itemsnews_items = soup.find_all('li', class_='`

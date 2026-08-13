@@ -36,9 +36,12 @@ with open('irates.csv', 'w', encoding='utf-8', newline='') as f:
         description = descr_div.get_text(strip=True) if descr_div else "No description"
         
         # Get link
-        link_tag = item.find('a')
-        if link_tag:
-            link = "https://irates.am/" + link_tag['href']
+        if title_div:
+            link_tag = title_div.find('a')
+            if link_tag:
+                link = "https://irates.am/" + link_tag['href']
+            else:
+                link = "No link"
         else:
             link = "No link"
         
@@ -52,7 +55,7 @@ with open('irates.csv', 'w', encoding='utf-8', newline='') as f:
         print(f"{i}. {title}")
         print(f" Date: {date} {news_time}")
         print(f" Link: {link}")
-        print(f"{description}\n")
+        print(f" News summary: {description}\n")
         
         # Write to CSV
         writer.writerow([i, title, description, date, news_time, link])

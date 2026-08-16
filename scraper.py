@@ -52,10 +52,10 @@ with open('irates.csv', 'w', encoding='utf-8', newline='') as f:
         news_time = time_span.get_text(strip=True) if time_span else "No time"
         
         # Print to console
-        print(f"{i}. {title}")
+        print(f" {i}. {title}\n")
+        print(f" News summary: {description}")
         print(f" Date: {date} {news_time}")
         print(f" Link: {link}")
-        print(f" News summary: {description}\n")
         
         # Write to CSV
         writer.writerow([i, title, description, date, news_time, link])

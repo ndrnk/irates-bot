@@ -7,14 +7,15 @@ url = "https://www.irates.am/hyR/feed"
 # Add headers to pretend we are a browser
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-} # 
+} 
 
+# Get the html page 
 response = requests.get(url, headers=headers)
 response.encoding = 'utf-8'
 
 soup = BeautifulSoup(response.text, 'html.parser')
 
-# Find all news itemsnews_items = soup.find_all('li', class_='`
+# Find all news
 news_items = soup.find_all('div', class_='listing-right')
 print(f"Found {len(news_items)} news items:\n")
 

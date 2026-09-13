@@ -1,13 +1,17 @@
 import requests 
 import csv 
+import random
 from bs4 import BeautifulSoup 
 
 url = "https://www.irates.am/hyR/feed" 
 
-# Add headers to pretend we are a browser
-headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-} 
+# Add headers to pretend we are a browser by using a random user agent
+with open('user_agents.txt') as file:
+    user_agents_list = [line.strip() for line in file if line.strip()]
+
+random_user_agent = random.choice(user_agents_list)
+
+headers = {'User-Agent': random_user_agent} 
 
 # Get the html page 
 response = requests.get(url, headers=headers)

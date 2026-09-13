@@ -12,3 +12,6 @@ irates.csv
 
 # Secrets — never commit tokens
 .env
+
+#List of User-Agents
+user_agents.txt

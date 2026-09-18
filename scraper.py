@@ -14,7 +14,7 @@ random_user_agent = random.choice(user_agents_list)
 headers = {'User-Agent': random_user_agent} 
 
 # Get the html page 
-response = requests.get(url, headers=headers)
+response = requests.get(url=url,  headers=headers, timeout=(5,15))
 response.encoding = 'utf-8'
 
 soup = BeautifulSoup(response.text, 'html.parser')

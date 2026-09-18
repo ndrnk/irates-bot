@@ -15,3 +15,6 @@ irates.csv
 
 #List of User-Agents
 user_agents.txt
+
+#Old directory
+irates_old/
